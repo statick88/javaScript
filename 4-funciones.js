@@ -1,75 +1,40 @@
-// Scope es igual a, donde buscar por cosas (estás cosas son las variables), 
-//el Scope es el alcance que tienen las variables, depende de donde las 
-//declaremos y las mandamos llamar si tendremos acceso a ellas o no.
+// Las funciones son procedimientos, un conjunto de sentencias o pasos que realizarán una tarea o cálculo con ciertos valores.
 
-// Tenemos dos tipos de Scope, Scope Global y Scope Local.
+// Tenemos dos tipo de funciones en js, function Declaration y function Expression 
 
-// ===============
+// el nombre reservado de function y parametros que recibira esa function 
 
-// Ejemplo de lo que es un Scope Global
-
-var miNombre = "Diego"; 
-
-function nombre() {
-    miNombre = "Juan";
-    return miNombre;
+function miFuncion() { // function declaration Declarativas expresión 
+    return 3; 
 }
 
-nombre();
+miFuncion(); // mandamos llamar la funcion
 
-console.log(miNombre);
-
-// Ejemplo de lo que es un Scope Local, el Scope local pasa al momento de crear una funcion, esto genera un ámbito diferente al global, al cual no se podrá tener acceso desde el ámbito global 
-
-var miNombre = "Diego"
-
-function nombre() {
-    var miApellido = "Saavedra"; 
-    return miNombre + " " + miApellido 
+var miFuncion = function(a,b) {  // function Expression (también conocidas como funciones anónimas)
+    return a + b;
 }
 
-nombre();
+miFuncion(); // mandamos llamar la variable como funcion
 
-console.log(miNombre);
-console.log(miApellido);
+/* ============================= */
 
-//  Ejemplos de como puede ayuar o crear error el tema del scope. 
-
-// Ejemplo 1, cómo con una funcion podemos vambiar el valor de la 
-//variable global
-var miNombre = "Diego"
-
-function nombre(usuario) {
-    miNombre = usuario;
-    console.log(miNombre); 
+function saludarEstudiante(estudiante) {
+    console.log(`Hola ${estudiante}`);  // template strings (Plantillas de cadena de texto)
 }
 
-nombre("Martin");
-
-console.log(`Hola ${miNombre}, cómo estás?`);
-
-
-// Ejemplo 2, cómo podemos evitar reescribir el valor de una variable 
-//gracias al scope,
-var miNombre = "Diego"
-
-function nombre(usuario) {
-    var miNombre = usuario;
-    console.log(miNombre); 
+function suma(a,b) {  // está funcion recibe 2 parámetros, que se convierten en un placeholder de valores que se pueden utilizar dentro de la función.
+    var resultado = a + b; 
 }
 
-nombre("Pepito");
+// Return, cómo regresamos un valor con una function. 
 
-console.log(`Hola ${miNombre}, cómo estás?`);
-
-// Ejemplo 3, cómo si creamos un scope local, y 
-//mandamos llamar la variable fuera de la funcion, nos puede crear un problema. 
-
-function nombre(usuario) {
-    var miNombre = usuario;
-    console.log(miNombre); 
+function suma(a,b) {
+    var resultado =  a + b; 
+    return resultado;
 }
 
-nombre("Maria");
+function suma(a,b) {
+    return a + b; 
+}
 
-console.log(`Hola ${miNombre}, cómo estás?`);
+suma(20, 30);
